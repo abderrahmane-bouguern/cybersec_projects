@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Notes personnelles (Stored Client XSS)</h2>
+    <input type="text" id="noteInput" placeholder="Écrivez votre note ici">
+    <button onclick="saveNote()">Sauvegarder</button>
+    <div id="notes"></div>
+
+    <script>
+        // Fonction pour sauvegarder une note dans localStorage
+        function saveNote() {
+            var note = document.getElementById('noteInput').value;
+            localStorage.setItem('note', note);
+            showNotes();
+        }
+
+        // Fonction pour afficher les notes
+        function showNotes() {
+            var note = localStorage.getItem('note');
+            if (note) {
+                document.getElementById('notes').innerHTML = note;
+            }
+        }
+
+        // Afficher les notes au chargement de la page
+        showNotes();
+    </script>
+</body>
+</html>

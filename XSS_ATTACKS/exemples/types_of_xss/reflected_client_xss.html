@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Recherche (Reflected Client XSS)</h2>
+    <div id="result"></div>
+
+    <script>
+        // Obtenir la requête de recherche depuis l'URL et l'afficher
+        var searchTerm = new URLSearchParams(window.location.search).get('search');
+        if (searchTerm) {
+            document.getElementById('result').innerHTML = 'Résultats pour : ' + searchTerm;
+        }
+    </script>
+</body>
+</html>
